@@ -20,7 +20,7 @@ docker build -t jenkinslinux:1.0.0
 
 ```
 
-and Run it
+and run it
 
 ```
 docker run -p 8080:8080 -p 50000:50000 jenkinslinux:1.0.0
@@ -28,8 +28,8 @@ docker run -p 8080:8080 -p 50000:50000 jenkinslinux:1.0.0
 
 3. NET Core Installation
 
-In order to build .net projects (console apps, asp.net projects), you will 
-need to load .NET Core Runtime + .NET Core SDK. Because dotnet-install.sh do not work on this image (source: https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script, curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin), you will need to perform the installation yourself according to the two ways described below. 
+In order to build .net projects (console apps, asp.net projects), you will need to **load .NET Core Runtime + .NET Core SDK**. 
+Because dotnet-install.sh do not work on this image (source: https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script, curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin), you will need to perform the installation yourself according to the **two ways described below**. 
 
 
 4. Installation with the dockerfile (recommended): 
@@ -58,8 +58,7 @@ RUN /var/tmp/scripts/dotnetInstall.sh
 RUN dotnet --version
 
 ```
-create a scripts directory in your build directory
-and copy it 
+create a scripts directory in your build directory and the following content to dotnetInstall.sh
 
 ```
 # Source: https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian#debian-9-
@@ -84,6 +83,10 @@ sudo apt-get update; \
   sudo apt-get update && \
   sudo apt-get install -y aspnetcore-runtime-3.1
 ```
+
+
+
+
 
 5. Manually in the container (not recommended):
 
@@ -145,3 +148,21 @@ Check everything works and .NET Core CLI is installed:
 ```
 dotnet --version
 ```
+
+7. Starting Jenkins Master
+
+Finally, you can rebuild a second image and run it with the following commands:
+
+```
+docker build -t jenkinslinux:1.1.0 .
+```
+
+```
+docker run -p 8080:8080 -p 50000:50000 jenkinslinux:1.1.0
+```
+
+Browse http://localhost:8080 and Jenkins Web Ui will start. 
+
+In /var/jenkins_home/secrets/initialAdminPassword you will find the initial password.
+
+You can open see it in your console with cat /var/jenkins_home/secrets/initialAdminPassword
