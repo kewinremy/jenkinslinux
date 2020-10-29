@@ -1,0 +1,13 @@
+pipeline {
+
+    agent any
+
+    stages {
+        
+        stage('dotnet cli test') {
+            steps {
+                sh 'dotnet --info'
+            }
+        }
+    }
+}
