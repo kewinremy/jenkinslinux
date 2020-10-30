@@ -3,11 +3,21 @@ pipeline {
     agent any
 
     stages {
-        
-        stage('dotnet cli test') {
-            steps {
-                sh 'dotnet --info'
-            }
+
+        stage('checkout') {
+
+        }
+
+        stage('restore') {
+
+        }
+
+        stage('build') {
+
+        }
+
+        stage('test') {
+
         }
     }
 }
