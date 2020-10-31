@@ -3,27 +3,23 @@ pipeline {
     agent any
 
     stages {
-		stage('set directory') {
-			steps {
-				sh 'ls'
-            }
-        }
+
 
 		stage('restore') {
             steps {
-				sh 'dotnet restore'
+				sh 'dotnet restore NetCore.sln'
             }
         }
 
 		stage('build'){
 			steps {
-				sh 'dotnet build'
+				sh 'dotnet build NetCore.sln'
 			}
 		}
 
 		stage('test'){
 			steps {
-				sh 'dotnet test'
+				sh 'dotnet test NetCore.sln'
 			}
 		}
     }
