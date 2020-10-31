@@ -4,7 +4,9 @@ pipeline {
 
     stages {
 		stage('set directory') {
-			sh '../Application'
+			steps {
+				sh '../Application'
+            }
         }
 
 		stage('restore') {
