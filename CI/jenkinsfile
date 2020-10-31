@@ -3,21 +3,10 @@ pipeline {
     agent any
 
     stages {
-
         stage('checkout') {
-
-        }
-
-        stage('restore') {
-
-        }
-
-        stage('build') {
-
-        }
-
-        stage('test') {
-
+            steps {
+				sh 'echo "hello world"'
+            }
         }
     }
 }
