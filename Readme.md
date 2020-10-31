@@ -1,8 +1,8 @@
-# Continous Integration with Jenkins Pipelines for .NET Core Applications
+# Continous Integration with Jenkins Pipelines for .NET Core Applications (Part 1)
 
 ## Installing Jenkins Master on Linux containers (OS: Debian 9)
 
-### Jenkins Master
+### Jenkins Master Installation
 
 1. Jenkins Installation
 
