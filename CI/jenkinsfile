@@ -3,10 +3,26 @@ pipeline {
     agent any
 
     stages {
-		stage('log files') {
+		stage('set directory') {
+			sh '../Application'
+        }
+
+		stage('restore') {
             steps {
-				sh 'ls --all'
+				sh 'dotnet restore'
             }
         }
+
+		stage('build'){
+			steps {
+				sh 'dotnet build'
+			}
+		}
+
+		stage('test'){
+			steps {
+				sh 'dotnet test'
+			}
+		}
     }
 }
