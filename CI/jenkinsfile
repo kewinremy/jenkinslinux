@@ -5,7 +5,7 @@ pipeline {
     stages {
 		stage('set directory') {
 			steps {
-				sh '../Application'
+				sh '/var/jenkins_home/workspace/NetCore/Application'
             }
         }
 
