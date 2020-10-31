@@ -3,9 +3,9 @@ pipeline {
     agent any
 
     stages {
-        stage('checkout') {
+		stage('log files') {
             steps {
-				sh 'echo "hello world"'
+				sh 'ls --all'
             }
         }
     }
