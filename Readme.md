@@ -40,9 +40,9 @@ create a scripts directory in your build directory and the following content to 
 # Source: https://docs.microsoft.com/en-us/dotnet/core/install/linux-debian#debian-9-
 
 # Installing sudo on debian
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get install sudo
+apt-get update
+apt-get -y upgrade
+apt-get install sudo
 
 # packages
 wget -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
